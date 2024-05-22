@@ -68,6 +68,7 @@ inline BinaryTree<T>::~BinaryTree()
 template<typename T>
 inline void BinaryTree<T>::add(const T& value)
 {
+	number++;
 	
 	if (!root)
 	{
@@ -77,7 +78,7 @@ inline void BinaryTree<T>::add(const T& value)
 
 	Node<T>* tmp = root;
 	Node<T>* newNode = new Node<T>{ value };
-	number++;
+	
 	while (tmp)
 	{
 		if (tmp->value > value)
