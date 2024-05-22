@@ -48,6 +48,7 @@ private:
 
 public:
 	BinaryTree() : root(nullptr), number(0) {};
+	BinaryTree(const std::initializer_list<T>& lst);
 	~BinaryTree();
 
 	size_t size() const {return number;}
@@ -57,6 +58,13 @@ public:
 
 	std::ostream& printINFIX(std::ostream& out) const { if (root) root->printINFIX(out); return out; };
 };
+
+template<typename T>
+inline BinaryTree<T>::BinaryTree(const std::initializer_list<T>& lst) : BinaryTree()
+{
+	for (const T* tmp = lst.begin(); tmp != lst.end(); tmp++)
+		add(*tmp);
+}
 
 template<typename T>
 inline BinaryTree<T>::~BinaryTree()
